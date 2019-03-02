@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.halilozcan.databingind.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
         personNameList.add(person2.name);
         personNameList.add(person3.name);
         personNameList.add(person4.name);
+
+        //activityMainBinding.setList(personNameList);
+
+        Map<String, String> map = new HashMap<>();
+
+        map.put("Halil", "1");
+
+        //activityMainBinding.setMap(map);
+
+        activityMainBinding.setUser(person1);
+        //activityMainBinding.setHandlers(new EventHandler());
+        activityMainBinding.setPresenter(new Presenter());
 
 
     }

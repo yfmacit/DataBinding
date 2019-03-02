@@ -5,11 +5,25 @@
 
     <data>
 
+        <variable
+            name="presenter"
+            type="com.halilozcan.databingind.Presenter" />
+
+        <variable
+            name="handlers"
+            type="com.halilozcan.databingind.EventHandler" />
+
         <import type="java.util.List" />
+
+        <import type="java.util.Map" />
 
         <variable
             name="list"
-            type="List<String>" />
+            type="List&lt;String>" />
+
+        <variable
+            name="map"
+            type="Map&lt;String, String>" />
 
         <variable
             name="user"
@@ -28,10 +42,13 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@{user.name ?? user.id}"
+            android:text='@{map["Halil"]}'
+            android:onClick="@{() -> presenter.onPersonNameClicked(user.name)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <!-- android:onClick="@{handlers::onNameTextClicked}" -->
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +56,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@{(String.valueOf(Integer.valueOf(user.id)*3))}"
+            android:text='@{map["Murat"], default = "halil"}'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
