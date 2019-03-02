@@ -15,7 +15,11 @@
 
         <import type="java.util.List" />
 
+        <import type="android.view.View" />
+
         <import type="java.util.Map" />
+
+        <import type="com.halilozcan.databingind.Presenter" />
 
         <variable
             name="list"
@@ -36,19 +40,21 @@
         tools:context=".MainActivity">
 
         <TextView
-
+            android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text='@{map["Halil"]}'
-            android:onClick="@{() -> presenter.onPersonNameClicked(user.name)}"
+            android:onClick="@{(view) -> presenter.onPersonNameClicked(view,user.name)}"
+            android:text='@{Presenter.getUpperString(user.name)}'
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!-- android:onClick="@{handlers::onNameTextClicked}" -->
-
+        <!--android:text='@{user.name}' -->
+        <!-- android:visibility="@{user.isYounger ? View.VISIBLE : View.GONE}" -->
 
         <TextView
             android:layout_width="wrap_content"
